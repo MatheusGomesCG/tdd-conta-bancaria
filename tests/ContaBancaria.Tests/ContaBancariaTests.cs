@@ -39,6 +39,7 @@ public class ContaBancariaTests
 
         // Act
         decimal valorASacar = saldoAntesDoSaque + 50;
+        conta.Sacar(valorASacar);
 
         // Assert
         Assert.Equal(saldoAntesDoSaque, conta.Saldo);
@@ -49,10 +50,12 @@ public class ContaBancariaTests
     {
         // Arrange
         var conta = new tdd_conta_bancaria.Models.ContaBancaria();
+        conta.Depositar(100);
         var saldoAntesDoSaque = conta.Saldo;
 
         // Act
         decimal valorASacar = 50;
+        conta.Sacar(valorASacar);
         decimal novoSaldo = saldoAntesDoSaque - valorASacar;
 
         // Assert
