@@ -61,4 +61,50 @@ public class ContaBancariaTests
         // Assert
         Assert.Equal(novoSaldo, conta.Saldo);
     }
+
+    [Fact]
+    public void DepositarUmValorPositivoDeveAumentarOSaldo()
+    {
+        // Arrange
+        var conta = new tdd_conta_bancaria.Models.ContaBancaria();
+        var saldoAntesDoDeposito = conta.Saldo;
+
+        // Act
+        decimal valorADepositar = 50;
+        conta.Depositar(valorADepositar);
+        decimal novoSaldo = saldoAntesDoDeposito + valorADepositar;
+
+        // Assert
+        Assert.Equal(novoSaldo, conta.Saldo);
+    }
+
+    [Fact]
+    public void DepositarUmValorNegativoNaoDeveAlterarOSaldo()
+    {
+        // Arrange
+        var conta = new tdd_conta_bancaria.Models.ContaBancaria();
+        var saldoAntesDoDeposito = conta.Saldo;
+
+        // Act
+        decimal valorADepositar = -50;
+        conta.Depositar(valorADepositar);
+
+        // Assert
+        Assert.Equal(saldoAntesDoDeposito, conta.Saldo);
+    }
+
+    [Fact]
+    public void DepositarZeroNaoDeveAlterarOSaldo()
+    {
+        // Arrange
+        var conta = new tdd_conta_bancaria.Models.ContaBancaria();
+        var saldoAntesDoDeposito = conta.Saldo;
+
+        // Act
+        decimal valorADepositar = 0;
+        conta.Depositar(valorADepositar);
+
+        // Assert
+        Assert.Equal(saldoAntesDoDeposito, conta.Saldo);
+    }
 }

@@ -8,4 +8,16 @@ public class ContaBancaria
     {
         Saldo = 0;
     }
+
+    public void Depositar(decimal valor)
+    {
+        if (valor > 0)
+            Saldo += valor;
+    }
+
+    public void Sacar(decimal valor)
+    {
+        if (valor <= Saldo)
+            Saldo -= valor;
+    }
 }
