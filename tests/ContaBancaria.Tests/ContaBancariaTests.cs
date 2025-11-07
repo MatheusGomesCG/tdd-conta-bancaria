@@ -1,3 +1,5 @@
+using tdd_conta_bancaria.Models;
+
 namespace ContaBancaria.Test;
 
 public class ContaBancariaTests
@@ -6,7 +8,7 @@ public class ContaBancariaTests
     public void NovaContaDeveComecarComSaldoInicialZero()
     {
         // Arrange
-        var conta = new ContaBancaria();
+        var conta = new tdd_conta_bancaria.Models.ContaBancaria();
 
         // Act
         var saldoInicial = conta.Saldo;
